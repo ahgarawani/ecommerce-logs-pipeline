@@ -42,23 +42,11 @@ fi
 
 # Stop Kafka
 echo "Stopping Kafka..."
-KAFKA_PID=$(ps aux | grep "kafka" | grep -v grep | awk '{print $2}')
-if [ -n "$KAFKA_PID" ]; then
-    kill -SIGTERM $KAFKA_PID
-    echo "Kafka stopped."
-else
-    echo "Kafka is not running."
-fi
+$KAFKA_HOME/bin/kafka-server-stop.sh
 
 # Stop ZooKeeper
 echo "Stopping ZooKeeper..."
-ZOOKEEPER_PID=$(ps aux | grep "zookeeper" | grep -v grep | awk '{print $2}')
-if [ -n "$ZOOKEEPER_PID" ]; then
-    kill -SIGTERM $ZOOKEEPER_PID
-    echo "ZooKeeper stopped."
-else
-    echo "ZooKeeper is not running."
-fi
+$KAFKA_HOME/bin/zookeeper-server-stop.sh
 
 echo "All services and scripts have been stopped."
 
