@@ -21,7 +21,7 @@ This repository contains a pipeline for streaming, processing, and storing e-com
     - [Stopping the Pipeline](#3-stopping-the-pipeline)
 
 ## Project Architecture
-![Project Architecture](./srcs/Architecture.gif)
+![Project Architecture](https://github.com/ahgarawani/ecommerce-logs-pipeline/blob/main/srcs/Architecutre.gif)
 
 ## Components
 
