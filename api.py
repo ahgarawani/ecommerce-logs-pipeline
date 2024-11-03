@@ -5,7 +5,7 @@ import random
 app = Flask(__name__)
 
 # Load the combined data into memory
-with open('./logs_new.json', 'r') as f:
+with open('./srcs/logs_new.json', 'r') as f:
     data = json.load(f)
 
 @app.route('/', methods=['GET'])
