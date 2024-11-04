@@ -9,16 +9,18 @@ This repository contains a pipeline for streaming, processing, and storing e-com
     - [Kafka Producer (`logs_streamer.py`)](#2-kafka-producer-logs_streamerpy)
     - [Flume Agent](#3-flume-agent)
     - [Processor to Database (`processor_to_db.py`)](#4-processor-to-database-processor_to_dbpy)
-    - [Scripts](#5-scripts)
-      - [`start-pipeline.sh`](#start-pipelinesh)
-      - [`stop-pipeline.sh`](#stop-pipelinesh)
     - [InfluxDB](#5influxdb)
     - [Grafana](#6grafana)
+    - [Scripts](#7-scripts)
+        - [`start-pipeline.sh`](#start-pipelinesh)
+        - [`stop-pipeline.sh`](#stop-pipelinesh)
+    
 3. [Dependencies](#dependencies)
 4. [Getting Started](#getting-started)
     - [Cloning the Repository](#1-cloning-the-repository)
     - [Starting the Pipeline](#2-starting-the-pipeline)
     - [Stopping the Pipeline](#3-stopping-the-pipeline)
+5. [Contributors](#contributors)
 
 ## Project Architecture
 ![Project Architecture](https://github.com/ahgarawani/ecommerce-logs-pipeline/blob/main/srcs/Architecutre.gif)
@@ -26,7 +28,7 @@ This repository contains a pipeline for streaming, processing, and storing e-com
 ## Components
 
 ### 1. Flask API Server (`api.py`)
-The Flask API server simulates an API endpoint that provides e-commerce log data. This server is started and stopped using the `start-pipeline.sh` and `stop-pipeline.sh` scripts respectively.
+The Flask API server simulates an API endpoint that provides e-commerce log data. From a predefined list of mock log data, the API server returns a random log entry each time it is called.
 
 ### 2. Kafka Producer (`logs_streamer.py`)
 The `logs_streamer.py` script fetches log data from the Flask API server and sends it to a Kafka topic named `ecommerce_logs`. The script runs in an infinite loop, fetching data every 3 seconds.
@@ -55,7 +57,7 @@ To set up Grafana:
 3. Enter your InfluxDB Cloud URL, organization ID, bucket name, and API token.
 4. Create dashboards and panels to visualize the e-commerce logs data.
 
-### 5. Scripts
+### 7. Scripts
 - #### `start-pipeline.sh`
     This script initializes and starts all components of the pipeline:
     1. Installs Python requirements.
@@ -88,7 +90,7 @@ To set up Grafana:
 
 Ensure all dependencies are installed and properly configured before running the pipeline.
 
-> **WARNING:** The pipeline is designed to run on a linux virtual machine that has the Hadoop ecosystem pre-configured on it. It was provided by the course instructor.
+> **WARNING:** The pipeline is designed to run on a CentOS virtual machine that has the Hadoop ecosystem pre-configured on it. It was provided by the course instructor.
 
 ## Getting Started
 
@@ -114,3 +116,9 @@ To stop the pipeline, run on a separate terminal:
 ```sh
 ./stop-pipeline.sh
 ```
+
+## Contributors
+
+- [Aya Hussein](https://github.com/aya-hussein1)
+- [Sara Mohamed](https://github.com/SaraMohamed18) 
+- [Ahmed Al-Garawani](https://github.com/ahgarawani) 
